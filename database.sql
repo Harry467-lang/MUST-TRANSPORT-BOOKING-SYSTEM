@@ -1,6 +1,4 @@
--- ============================================
--- University Transport Booking System Database
--- ============================================
+
 
 CREATE DATABASE IF NOT EXISTS uni_transport;
 USE uni_transport;
