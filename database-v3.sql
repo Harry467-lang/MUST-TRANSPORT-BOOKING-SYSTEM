@@ -1,15 +1,8 @@
--- ============================================
--- University Transport Booking System
--- UPDATED SCHEMA — with Drivers + Payments
--- ============================================
+
 
 CREATE DATABASE IF NOT EXISTS uni_transport;
 USE uni_transport;
 
--- ============================================
--- USERS TABLE
--- CHANGED: role ENUM now includes 'driver'
--- ============================================
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
@@ -34,8 +27,8 @@ CREATE TABLE IF NOT EXISTS cars (
     driver_id INT DEFAULT NULL,                             /* <-- NEW COLUMN */
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (driver_id) REFERENCES users(id)            /* <-- NEW FK */
-        ON DELETE SET NULL ON UPDATE CASCADE
+    FOREIGN KEY (driver_id) REFERENCES users(id) ON DELETE SET NULL            /* <-- NEW FK */
+        
 ) ENGINE=InnoDB;
 
 -- ============================================
@@ -56,9 +49,9 @@ CREATE TABLE IF NOT EXISTS bookings (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY (user_id) REFERENCES users(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE,
     FOREIGN KEY (car_id) REFERENCES cars(id)
-        ON DELETE CASCADE ON UPDATE CASCADE
+        ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 -- ============================================
@@ -74,10 +67,6 @@ CREATE TABLE IF NOT EXISTS payments (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY (booking_id) REFERENCES bookings(id)
-        ON DELETE CASCADE ON UPDATE CASCADE
+        ON DELETE CASCADE 
 ) ENGINE=InnoDB;
 
--- Indexes
-CREATE INDEX idx_car_date ON bookings(car_id, booking_date);
-CREATE INDEX idx_user ON bookings(user_id);
-CREATE INDEX idx_payment_booking ON payments(booking_id);
