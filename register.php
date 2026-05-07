@@ -24,16 +24,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register — UniTransport</title><link rel="stylesheet" href="style.css">
+<title>Register — MUST BOOKING SYSTEM</title><link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,500;9..40,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head><body>
 <div class="auth-page"><div class="auth-card">
-    <div class="auth-header"><div class="auth-logo"><i class="fas fa-user-plus"></i></div><h1>Create Account</h1><p>Register to book university transport</p></div>
+    <div class="auth-header"><div class="auth-logo"><i class="fas fa-user-plus"></i></div><h1>Create Account</h1><p>Register for MUST transport booking</p></div>
     <?php if (!empty($errors)): ?><div class="alert alert-error"><i class="fas fa-exclamation-circle"></i> <?= sanitize($errors[0]) ?></div><?php endif; ?>
     <form method="POST">
         <div class="form-group"><label><i class="fas fa-user"></i> Full Name</label><input type="text" name="full_name" class="form-control" placeholder="e.g. Chikondi Banda" value="<?= sanitize($_POST['full_name'] ?? '') ?>" required></div>
-        <div class="form-group"><label><i class="fas fa-envelope"></i> Email</label><input type="email" name="email" class="form-control" placeholder="you@students.uni.ac.mw" value="<?= sanitize($_POST['email'] ?? '') ?>" required></div>
+        <div class="form-group"><label><i class="fas fa-envelope"></i> Email</label><input type="email" name="email" class="form-control" placeholder="you@must.ac.mw" value="<?= sanitize($_POST['email'] ?? '') ?>" required></div>
         <div class="form-group"><label><i class="fas fa-phone"></i> Phone</label><input type="text" name="phone" class="form-control" placeholder="+265 99X XXX XXX" value="<?= sanitize($_POST['phone'] ?? '') ?>" required></div>
         <div class="form-row">
             <div class="form-group"><label><i class="fas fa-lock"></i> Password</label><input type="password" name="password" class="form-control" placeholder="Min 6 characters" required></div>
