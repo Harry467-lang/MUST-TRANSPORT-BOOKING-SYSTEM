@@ -7,7 +7,7 @@ $flash = getFlash();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $pageTitle ?? 'UniTransport' ?> — University Transport Booking</title>
+    <title><?= $pageTitle ?? 'UniTransport' ?> — MUST BOOKING SYSTEM</title>
     <link rel="stylesheet" href="<?= isset($isAdmin) ? '../style.css' : 'style.css' ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,8 +18,8 @@ $flash = getFlash();
 <div class="app-layout">
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <div class="brand-icon"><i class="fas fa-bus"></i></div>
-            <div><h2>UniTransport</h2><small>Booking System</small></div>
+            <div class="brand-icon"><img src="<?= isset($isAdmin) ? '../assets/logoMUST.png' : 'assets/logoMUST.png' ?>" alt="MUST"></div>
+            <div><h2>MUST BOOKING</h2><small>TRANSPORT SYSTEM</small></div>
         </div>
         <nav class="sidebar-nav">
             <?php if (isAdmin()): ?>
